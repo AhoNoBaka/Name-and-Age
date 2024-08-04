@@ -1,16 +1,22 @@
+currentYear = input('What is the current year? : ')
 name = input('Enter Your Name :')
-age = input('Enter your Birth Year :')
+birthYear = input('Enter your Birth Year :')
 
-while name == '' or age == '':
+while currentYear == '' or name == '' or birthYear == '':
+    if currentYear == '':
+        print('You haven\'t filled the current year')
+        currentYear = input('Please enter the current year: ')
     if name == '':
-        print('Wala ka pangalan')
-        name = input('Enter Your Name :')
-    if age == '':
-        print('Wala kang nilagay na birth year')
-        age = input('Enter your birth year')
+        print('You haven\'t filled your name: ')
+        name = input('Please enter Your Name :')
+    if birthYear == '':
+        print('You haven\'t filled your Birth year')
+        birthYear = input('Please enter your birth year: ')
+    
 
-age = int(age)
-age = 2024 - age
+currentYear = int(currentYear)
+birthYear = int(birthYear)
+age = currentYear - birthYear
 
 print(name)
 print(age)
