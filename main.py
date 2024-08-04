@@ -1,22 +1,22 @@
-currentYear = input('What is the current year? : ')
-name = input('Enter Your Name :')
-birthYear = input('Enter your Birth Year :')
+def validation(prompt, validation_func):
+    user_input = input(prompt)
+    while not validation_func(user_input):
+        print("Invalid input:", user_input)
+        user_input = input(prompt)
+    return user_input
 
-while currentYear == '' or name == '' or birthYear == '':
-    if currentYear == '':
-        print('You haven\'t filled the current year')
-        currentYear = input('Please enter the current year: ')
-    if name == '':
-        print('You haven\'t filled your name: ')
-        name = input('Please enter Your Name :')
-    if birthYear == '':
-        print('You haven\'t filled your Birth year')
-        birthYear = input('Please enter your birth year: ')
-    
+def number(input_string):
+    return input_string.isdigit()
+
+def letter(input_string):
+    return input_string.isalpha()
+
+currentYear = validation('What is the current year? : ', number)
+name = validation('Enter Your Name :', letter)
+birthYear = validation('Enter your Birth Year :', number)
 
 currentYear = int(currentYear)
 birthYear = int(birthYear)
 age = currentYear - birthYear
 
-print(name)
-print(age)
+print(name, "is currently", age, "years old at the year", currentYear)
